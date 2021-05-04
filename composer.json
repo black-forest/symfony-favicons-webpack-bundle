@@ -25,6 +25,7 @@
     },
     "require": {
         "php": "^7.1.3",
+        "symfony/dependency-injection": "^3.3 || ^4.1"
         "symfony/http-kernel": "^3.3 || ^4.1",
     },
     "require-dev": {
