@@ -1,0 +1,41 @@
+{
+    "name": "blackforest/symfony-favicons-webpack-bundle",
+    "description": "Symfony favicons webpack bundle",
+    "keywords": [
+        "symfony",
+        "bundle",
+        "webpack",
+        "favicons"
+    ],
+    "type": "contao-bundle",
+    "homepage": "https://github.com/blackforest/symfony-favicons-webpack-bundle",
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Sven Baumann",
+            "email": "baumann.sv@gmail.com",
+            "homepage": "https://github.com/baumannsven",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "baumann.sv@gmail.com",
+        "issues": "https://github.com/symfony-favicons-webpack-bundle/issues",
+        "source": "https://github.com/symfony-favicons-webpack-bundle"
+    },
+    "require": {
+        "php": "^7.1.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "BlackForest\\Symfony\\WebpackEncoreBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BlackForest\\Symfony\\WebpackEncoreBundle\\Test\\": "tests"
+        }
+    }
+}
