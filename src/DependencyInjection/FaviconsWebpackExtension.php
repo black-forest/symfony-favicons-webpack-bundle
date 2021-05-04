@@ -38,5 +38,8 @@ final class FaviconsWebpackExtension extends Extension
     {
         $loader = new YamlFileLoader($container, new FileLocator(\dirname(__DIR__) . '/Resources/config'));
         $loader->load('services.yml');
+
+        $configuration = $this->getConfiguration($configs, $container);
+        $config = $this->processConfiguration($configuration, $configs);
     }
 }
