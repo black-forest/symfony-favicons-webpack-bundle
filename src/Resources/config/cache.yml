@@ -15,3 +15,12 @@ services:
     arguments:
       - '%kernel.cache_dir%/favicons_webpack.cache.php'
       - '@cache.favicons_webpack'
+
+  BlackForest\Symfony\WebpackEncoreBundle\CacheWarmer\FaviconsCacheWarmer:
+    arguments:
+      $cacheKeys: ~ # Build in the extension.
+      $fileLocator: '@file_locator'
+      $phpArrayFile: '%kernel.cache_dir%/favicons_webpack.cache.php'
+      $fallbackCache: '@cache.favicons_webpack'
+    tags:
+      - name: kernel.cache_warmer

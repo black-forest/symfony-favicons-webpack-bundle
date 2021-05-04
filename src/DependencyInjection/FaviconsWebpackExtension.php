@@ -23,6 +23,7 @@ namespace BlackForest\Symfony\WebpackEncoreBundle\DependencyInjection;
 
 use BlackForest\Symfony\WebpackEncoreBundle\Asset\Favicons;
 use BlackForest\Symfony\WebpackEncoreBundle\Asset\FaviconsCollectionInterface;
+use BlackForest\Symfony\WebpackEncoreBundle\CacheWarmer\FaviconsCacheWarmer;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -70,6 +71,9 @@ final class FaviconsWebpackExtension extends Extension
             $factories[$name] = $this->faviconsFactory($container, $config['cache'], $name, $path);
             $cacheKeys[$name] = $path;
         }
+
+        $container->getDefinition(FaviconsCacheWarmer::class)
+            ->replaceArgument('$cacheKeys', $cacheKeys);
 
         $container->findDefinition(FaviconsCollectionInterface::class)
             ->replaceArgument('$faviconsCollection', ServiceLocatorTagPass::register($container, $factories));
