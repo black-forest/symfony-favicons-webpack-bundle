@@ -7,7 +7,7 @@
         "webpack",
         "favicons"
     ],
-    "type": "contao-bundle",
+    "type": "symfony-bundle",
     "homepage": "https://github.com/blackforest/symfony-favicons-webpack-bundle",
     "license": "LGPL-3.0-or-later",
     "authors": [
