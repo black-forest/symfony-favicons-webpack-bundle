@@ -22,7 +22,9 @@ declare(strict_types=1);
 namespace BlackForest\Symfony\WebpackEncoreBundle\DependencyInjection;
 
 use BlackForest\Symfony\WebpackEncoreBundle\Asset\Favicons;
+use BlackForest\Symfony\WebpackEncoreBundle\Asset\FaviconsCollectionInterface;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -68,6 +70,9 @@ final class FaviconsWebpackExtension extends Extension
             $factories[$name] = $this->faviconsFactory($container, $config['cache'], $name, $path);
             $cacheKeys[$name] = $path;
         }
+
+        $container->findDefinition(FaviconsCollectionInterface::class)
+            ->replaceArgument('$faviconsCollection', ServiceLocatorTagPass::register($container, $factories));
     }
 
     /**

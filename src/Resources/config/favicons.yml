@@ -1,0 +1,7 @@
+services:
+  BlackForest\Symfony\WebpackEncoreBundle\Asset\FaviconsCollectionInterface:
+    '@BlackForest\Symfony\WebpackEncoreBundle\Asset\FaviconsCollection'
+
+  BlackForest\Symfony\WebpackEncoreBundle\Asset\FaviconsCollection:
+    arguments:
+      $faviconsCollection: ~ # Build in the extension.
