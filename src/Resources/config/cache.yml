@@ -1,0 +1,17 @@
+services:
+  defaults:
+    public: false
+
+  cache.favicons_webpack:
+    parent: 'cache.system'
+    tags:
+      - name: cache.pool
+
+  favicons_webpack.cache:
+    class: 'Symfony\Component\Cache\Adapter\PhpArrayAdapter'
+    factory:
+      - 'Symfony\Component\Cache\Adapter\PhpArrayAdapter'
+      - 'create'
+    arguments:
+      - '%kernel.cache_dir%/favicons_webpack.cache.php'
+      - '@cache.favicons_webpack'
