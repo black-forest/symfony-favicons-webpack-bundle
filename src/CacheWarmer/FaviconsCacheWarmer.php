@@ -27,6 +27,7 @@ use BlackForest\Symfony\WebpackEncoreBundle\Exception\FaviconsNotFoundException;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Bundle\FrameworkBundle\CacheWarmer\AbstractPhpFileCacheWarmer;
 use Symfony\Component\Cache\Adapter\ArrayAdapter;
+use Symfony\Component\Config\Exception\FileLocatorFileNotFoundException;
 use Symfony\Component\Config\FileLocatorInterface;
 
 /**
@@ -75,7 +76,9 @@ final class FaviconsCacheWarmer extends AbstractPhpFileCacheWarmer
     {
         foreach ($this->cacheKeys as $cacheKey => $faviconHtmlPath) {
             // If the file does not exist then just skip past this favicons.
-            if (!\file_exists($this->fileLocator->locate($faviconHtmlPath))) {
+            try {
+                $this->fileLocator->locate($faviconHtmlPath);
+            } catch (FileLocatorFileNotFoundException $e) {
                 continue;
             }
 
