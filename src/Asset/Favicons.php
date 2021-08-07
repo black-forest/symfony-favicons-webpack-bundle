@@ -89,7 +89,7 @@ final class Favicons implements FaviconsInterface
     /**
      * {@inheritDoc}
      */
-    public function getFaviconHtmlHeadTags(): array
+    public function getFaviconHtmlHeadTags(): ?array
     {
         $this->validateFavicons();
 

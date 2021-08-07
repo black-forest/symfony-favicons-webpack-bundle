@@ -31,7 +31,7 @@ interface FaviconsInterface extends ResetInterface
     /**
      * Get the favicon html head tags.
      *
-     * @return array
+     * @return String[]|null
      */
-    public function getFaviconHtmlHeadTags(): array;
+    public function getFaviconHtmlHeadTags(): ?array;
 }
