@@ -1,7 +1,4 @@
 services:
-  defaults:
-    public: false
-
   cache.favicons_webpack:
     parent: 'cache.system'
     tags:
@@ -17,6 +14,7 @@ services:
       - '@cache.favicons_webpack'
 
   BlackForest\Symfony\WebpackEncoreBundle\CacheWarmer\FaviconsCacheWarmer:
+    public: false
     arguments:
       $cacheKeys: ~ # Build in the extension.
       $fileLocator: '@file_locator'
