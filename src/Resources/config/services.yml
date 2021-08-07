@@ -1,2 +1,3 @@
 imports:
   - resource: cache.yml
+  - resource: favicons.yml
