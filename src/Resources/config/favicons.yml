@@ -5,3 +5,11 @@ services:
     public: false
     arguments:
       $faviconsCollection: ~ # Build in the extension.
+
+  BlackForest\Symfony\WebpackEncoreBundle\Asset\TagRenderer:
+    public: false
+    arguments:
+      - '@BlackForest\Symfony\WebpackEncoreBundle\Asset\FaviconsCollection'
+    tags:
+      - name: kernel.reset
+        method: reset
